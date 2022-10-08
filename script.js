@@ -7,8 +7,6 @@ function getComputerChoice() {
     } else return "Scissors";
 }
 
-console.log(getComputerChoice());
-
 function playRound(playerSelection, computerSelection) {
 
     playerSelection = playerSelection.trim().toLowerCase();
@@ -31,4 +29,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound("rock", getComputerChoice()));
+function game() {
+
+    let score = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Play Rock Paper Scissors:", "rock");
+        let computerSelection = getComputerChoice();
+
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (result === "Round Won!") {
+            score++;
+        }
+    }
+
+    console.log(`${score}/5 rounds won`);
+}
+
+game();
