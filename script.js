@@ -7,27 +7,10 @@ function getComputerChoice() {
     } else return "scissors";
 }
 
-function getPlayerChoice() {
-    
-    let noAnswer = true;
-    let choice = "";
-    while (noAnswer) {
-        choice = prompt("Play Rock Paper Scissors:", "rock");
-        choice = choice.trim().toLowerCase();
-        noAnswer = false;
+function compareChoices(playerSelection, computerSelection) {
 
-        if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
-            console.log("Not an option, try again");
-            noAnswer = true;
-        }
-    }
-    return choice;
-}
-
-function playRound(playerSelection, computerSelection) {
-
-    console.log(playerSelection);
-    console.log(computerSelection);
+    //console.log(playerSelection);
+    //console.log(computerSelection);
 
     switch(true) {
         case playerSelection === computerSelection: 
@@ -43,22 +26,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
+const buttons = document.querySelectorAll('button');
 
-    let score = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-        if (result === "Round Won!") {
-            score++;
-        }
-    }
-
-    console.log(`${score}/5 rounds won`);
+function playGame(e) {
+    let playerChoice = this.classList.value;
+    let compChoice = getComputerChoice();
+    console.log(`You chose ${playerChoice}`);
+    console.log(`I picked ${compChoice}`);
+    result = compareChoices(playerChoice, compChoice);
+    console.log(result);
 }
 
-game();
+buttons.forEach(choice => choice.addEventListener('click', playGame));
