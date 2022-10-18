@@ -1,3 +1,7 @@
+let playerScore = 0;
+let compScore = 0;
+let tieScore = 0;
+
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 10);
     if (rand < 3) {
@@ -14,27 +18,50 @@ function compareChoices(playerSelection, computerSelection) {
 
     switch(true) {
         case playerSelection === computerSelection: 
+            tieScore++;
             return "Tied!";
             break;
         case (playerSelection === "rock" && computerSelection === "scissors"):
         case (playerSelection === "paper" && computerSelection === "rock"):
         case (playerSelection === "scissors" && computerSelection === "paper"):
+            playerScore++;
             return "Round Won!";
             break;
         default: 
+            compScore++;
             return "Round Lost!";
     }
 }
 
+function checkGameEnd() {
+    if (playerScore === 5 || compScore === 5) {
+        let victor = playerScore > compScore ? ('Player Wins') : ('Computer Wins');
+        finalVictor.textContent = victor;
+    }
+}
+
 const buttons = document.querySelectorAll('button');
+const roundResult = document.querySelector('.result');
+const winCount = document.querySelector('.win-count');
+const lossCount = document.querySelector('.loss-count');
+const tieCount = document.querySelector('.tie-count');
+const playerChoice = document.querySelector('.player-choice');
+const compChoice = document.querySelector('.comp-choice');
+const finalVictor = document.querySelector('.final-victor');
 
 function playGame(e) {
-    let playerChoice = this.classList.value;
-    let compChoice = getComputerChoice();
-    console.log(`You chose ${playerChoice}`);
-    console.log(`I picked ${compChoice}`);
-    result = compareChoices(playerChoice, compChoice);
-    console.log(result);
+    let player = this.classList.value;
+    let comp = getComputerChoice();
+    result = compareChoices(player, comp);
+
+    playerChoice.textContent = `You chose ${player}`;
+    compChoice.textContent = `I picked ${comp}`;
+    roundResult.textContent = `${result}`;
+    winCount.textContent = `Player: ${playerScore}`;
+    lossCount.textContent = `Computer: ${compScore}`;
+    tieCount.textContent = `Tie Games: ${tieScore}`;
+
+    checkGameEnd();
 }
 
 buttons.forEach(choice => choice.addEventListener('click', playGame));
