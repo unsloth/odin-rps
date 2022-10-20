@@ -54,11 +54,11 @@ function playGame(e) {
     let comp = getComputerChoice();
     result = compareChoices(player, comp);
 
-    playerChoice.textContent = `You chose ${player}`;
-    compChoice.textContent = `I picked ${comp}`;
+    playerChoice.textContent = `${player.toUpperCase()}`;
+    compChoice.textContent = `${comp.toUpperCase()}`;
     roundResult.textContent = `${result}`;
     winCount.textContent = `Player: ${playerScore}`;
-    lossCount.textContent = `Computer: ${compScore}`;
+    lossCount.textContent = `Machine: ${compScore}`;
     tieCount.textContent = `Tie Games: ${tieScore}`;
 
     checkGameEnd();
