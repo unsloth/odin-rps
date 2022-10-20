@@ -11,17 +11,30 @@
 </head>
 
 <body>
-  <div>
-    <button class="rock">Rock</button>
-    <button class="paper">Paper</button>
-    <button class="scissors">Scissors</button>
+  <h1>Let's Play:</h1>
+  <h2>Rock Paper Scissors</h2>
+  <div class="game-board">
+    <div class="buttons">
+      <button class="rock">Rock</button>
+      <button class="paper">Paper</button>
+      <button class="scissors">Scissors</button>
+    </div>
+    <img src="./img/gnome-spade.jpg">
+    <div class="mid-section">
+      <div class="choices">
+        <div class="player-choice"></div>
+        <div class="comp-choice"></div>
+      </div>
+      <div class="result"></div>
+    </div>
+    <img src="./img/gnome-stone.jpg">
   </div>
-  <div class="player-choice"></div>
-  <div class="comp-choice"></div>
-  <div class="result"></div>
-  <div class="win-count">Player: 0</div>
-  <div class="loss-count">Computer: 0</div>
-  <div class="tie-count">Tie Games: 0</div>
+
+  <div class="score">
+    <div class="win-count">Player: 0</div>
+    <div class="tie-count">Tie Games: 0</div>
+    <div class="loss-count">Computer: 0</div>
+  </div>
   <div class="final-victor"></div>
 </body>
 
