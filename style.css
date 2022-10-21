@@ -103,6 +103,38 @@ img {
     font-size: 3vw;
 }
 
-.final-victor {
+.victor-screen {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 30vh;
+    left: 30vw;
+    height: 40vh;
+    width: 40vw;
+    background-color: rgb(54, 6, 6);
     color: rgb(218, 98, 23);
+    align-items: center;
+    justify-content: center;
+    border: .4vw rgb(246, 189, 85) solid;
+    border-radius: 2vw;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.close-button {
+    position: absolute;
+    top: -1vw;
+    right: -1vw;
+    text-align: center;
+    width: 2vw;
+    height: 2vw;
+    line-height: 2vw;
+    border: .2vw black solid;
+    border-radius: 2vw;
+    background-color: rgb(41, 27, 2);
+    font-size: 2vw;
+}
+
+.close-button:hover {
+    cursor: pointer;
 }
