@@ -3,12 +3,18 @@ let compScore = 0;
 let tieScore = 0;
 
 function getComputerChoice() {
-    let rand = Math.floor(Math.random() * 10);
-    if (rand < 3) {
-        return "rock";
-    } else if (rand < 6) {
-        return "paper";
-    } else return "scissors";
+    let rand = Math.floor(Math.random() * 3);
+    switch(rand) {
+        case 0:
+            return "rock";
+            break;
+        case 1:
+            return "paper";
+            break;
+        case 2:
+            return "scissors";
+            break;
+    }
 }
 
 function compareChoices(playerSelection, computerSelection) {
